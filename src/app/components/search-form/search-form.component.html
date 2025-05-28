@@ -1,0 +1,19 @@
+<div class="container">
+  <h2>Validar Usuario</h2>
+  <form [formGroup]="cedulaForm" (ngSubmit)="onSubmit()">
+    <input type="text" formControlName="cedula" placeholder="Ingrese su cédula">
+    <button type="submit">Validar</button>
+  </form>
+
+  <div *ngIf="userFound">
+    <h3>Usuario encontrado</h3>
+    <p>Nombre: {{ userData.nombre }}</p>
+    <p>Teléfono: {{ userData.telefono }}</p>
+    <p>Ciudad: {{ userData.ciudad }}</p>
+  </div>
+
+  <div *ngIf="userFound === false">
+    <h3>No estás registrado</h3>
+    <app-register-form></app-register-form>
+  </div>
+</div>

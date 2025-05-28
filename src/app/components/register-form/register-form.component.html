@@ -1,0 +1,17 @@
+<div class="container">
+  <h2>Registro de Usuario</h2>
+  <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+    <input type="text" formControlName="cedula" placeholder="Cédula" [disabled]="true">
+    <input type="text" formControlName="nombre" placeholder="Nombre Completo">
+    <input type="text" formControlName="telefono" placeholder="Número de Teléfono">
+    <select formControlName="ciudad">
+      <option value="Cali">Cali</option>
+      <option value="Bogotá">Bogotá</option>
+      <option value="Medellín">Medellín</option>
+      <option value="Otro">Otro</option>
+    </select>
+    <input type="file" (change)="onFileSelected($event)">
+    <img *ngIf="previewUrl" [src]="previewUrl" alt="Vista previa">
+    <button type="submit">Registrar</button>
+  </form>
+</div>
